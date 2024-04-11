@@ -1,6 +1,6 @@
 from django.http import JsonResponse, HttpResponse
 
-def home_view(request):
+def message_view(request):
     data = {
         "message": "Welcome to the API Gateway!",
         "status": "success"

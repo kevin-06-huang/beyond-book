@@ -5,3 +5,4 @@ dist/
 coverage/
 .vscode/
 venv
+__pycache__
