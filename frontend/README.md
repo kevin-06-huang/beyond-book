@@ -1,1 +1,2 @@
-Front-end in typescript
+npm i
+npm run dev
