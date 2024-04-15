@@ -7,6 +7,8 @@ services:
       - ./backend:/backend
     ports:
       - "8000:8000"
+    env_file:
+      - ./backend/.env
     environment:
       - DJANGO_ALLOWED_HOSTS=backend
     networks:
@@ -21,6 +23,8 @@ services:
       - "5173:5173"
     depends_on:
       - backend
+    environment:
+      - BACKEND_URL=http://backend:8000
     networks:
       - app-network
     command: npm run dev
