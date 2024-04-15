@@ -7,8 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "format": "prettier --write \"src/**/*.{js,jsx}\"",
-    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
