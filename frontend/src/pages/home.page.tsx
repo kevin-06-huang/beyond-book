@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
+import useDocumentTitle from "../hooks/useDocumentTitle";
 
 const HomePage = () => {
   const [message, setMessage] = useState("");
+  useDocumentTitle("Home");
+
   useEffect(() => {
+    
     const fetchData = async () => {
       try {
         const response = await fetch("/api/message");
@@ -15,6 +19,7 @@ const HomePage = () => {
         console.error("Error: ", err);
       }
     };
+
     fetchData();
   }, []);
 
