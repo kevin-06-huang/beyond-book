@@ -6,7 +6,6 @@ const HomePage = () => {
   useDocumentTitle("Home");
 
   useEffect(() => {
-    
     const fetchData = async () => {
       try {
         const response = await fetch("/api/message");
