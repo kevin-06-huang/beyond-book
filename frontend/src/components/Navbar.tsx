@@ -9,7 +9,7 @@ const getNavLinkClass = ({ isActive }: { isActive: boolean }) => {
 
 const NavBar = () => {
   return (
-    <nav className="bg-gray-800 p-4 flex justify-between items-center">
+    <nav className="bg-blue-800 p-4 flex justify-between items-center">
       <Logo className={"size-24"} />
       <div className="flex space-x-4">
         <NavLink to="/" className={getNavLinkClass}>
@@ -22,7 +22,6 @@ const NavBar = () => {
           About Us
         </NavLink>
       </div>
-      {/* Other nav items */}
     </nav>
   );
 };
