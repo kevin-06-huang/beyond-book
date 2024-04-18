@@ -1,15 +1,25 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useDocumentTitle from "../hooks/useDocumentTitle";
+import { useAuth } from "../contexts/AuthContext";
 
 const LoginPage = () => {
   useDocumentTitle("Login");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const { login } = useAuth();
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    const success = await login(username, password);
+
+    if (success) {
+      navigate("/library");
+    } else {
+      console.error("Login failed");
+    }
   };
 
   const handleRegisterButtonClick = () => {
