@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { Logo } from "./shared/Logo";
+import { useAuth } from "../contexts/AuthContext";
 
 const getNavLinkClass = ({ isActive }: { isActive: boolean }) => {
   return isActive
@@ -8,6 +9,7 @@ const getNavLinkClass = ({ isActive }: { isActive: boolean }) => {
 };
 
 const NavBar = () => {
+  const { user } = useAuth();
   return (
     <nav className="bg-blue-800 p-4 flex justify-between items-center">
       <Logo className={"size-24"} />
@@ -15,12 +17,19 @@ const NavBar = () => {
         <NavLink to="/" className={getNavLinkClass}>
           Home
         </NavLink>
-        <NavLink to="/library" className={getNavLinkClass}>
-          Library
-        </NavLink>
+        {user && (
+          <NavLink to="/library" className={getNavLinkClass}>
+            Library
+          </NavLink>
+        )}
         <NavLink to="/about" className={getNavLinkClass}>
           About Us
         </NavLink>
+        {!user && (
+          <NavLink to="/login" className={getNavLinkClass}>
+            Login
+          </NavLink>
+        )}
       </div>
     </nav>
   );
