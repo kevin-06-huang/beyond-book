@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import useDocumentTitle from "../hooks/useDocumentTitle";
 
 const RegisterPage = () => {
@@ -6,7 +7,16 @@ const RegisterPage = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const handleSubmit = () => {};
+  const navigate = useNavigate();
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  };
+
+  const handleLoginButtonClick = () => {
+    navigate("/login");
+  };
+
   return (
     <div className="flex-grow flex items-center justify-center bg-gray-100">
       <div className="px-8 py-6 mt-4 text-left bg-white shadow-lg">
@@ -58,6 +68,7 @@ const RegisterPage = () => {
               </button>
               <button
                 type="button"
+                onClick={handleLoginButtonClick}
                 className="px-6 py-2 mt-4 text-white bg-red-600 rounded-lg hover:bg-blue-900"
               >
                 Login
