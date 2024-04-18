@@ -4,6 +4,7 @@ import Layout from "../layouts/Layout";
 import HomePage from "../pages/HomePage";
 import LibraryPage from "../pages/LibraryPage";
 import LoginPage from "../pages/LoginPage";
+import RegisterPage from "../pages/RegisterPage";
 import AboutPage from "../pages/AboutPage";
 
 const useAuthRoutes = () => {
@@ -26,6 +27,10 @@ const useAuthRoutes = () => {
             {
               path: "login",
               element: <LoginPage />,
+            },
+            {
+              path: "register",
+              element: <RegisterPage />,
             },
           ]),
     ],

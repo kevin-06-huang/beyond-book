@@ -3,10 +3,10 @@ import Navbar from "../components/Navbar";
 
 const Layout = () => {
   return (
-    <>
+    <div className="flex flex-col h-screen">
       <Navbar />
       <Outlet />
-    </>
+    </div>
   );
 };
 
