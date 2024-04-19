@@ -45,7 +45,9 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }
   };
 
-  const logout = () => {};
+  const logout = () => {
+    setUser(null);
+  };
 
   const register = async (
     username: string,

@@ -1,4 +1,4 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { Logo } from "./shared/Logo";
 import { useAuth } from "../contexts/AuthContext";
 
@@ -9,7 +9,9 @@ const getNavLinkClass = ({ isActive }: { isActive: boolean }) => {
 };
 
 const NavBar = () => {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+
   const showLoginOrRegister = () => {
     const location = useLocation();
     if (location.pathname === "/login") {
@@ -26,6 +28,12 @@ const NavBar = () => {
       );
     }
   };
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
+
   return (
     <div className="flex relative justify-between bg-blue-800 h-20">
       <div className="size-24">
@@ -45,9 +53,12 @@ const NavBar = () => {
             About Us
           </NavLink>
           {user ? (
-            <NavLink to="/logout" className={getNavLinkClass}>
+            <button
+              onClick={handleLogout}
+              className={"hover:bg-gray-700 px-3 py-2 rounded-md text-white"}
+            >
               Logout
-            </NavLink>
+            </button>
           ) : (
             showLoginOrRegister()
           )}
