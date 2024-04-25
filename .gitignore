@@ -4,5 +4,5 @@ dist/
 .DS_Store
 coverage/
 .vscode/
-venv
+.venv
 __pycache__
