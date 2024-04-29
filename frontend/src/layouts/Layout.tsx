@@ -5,7 +5,9 @@ const Layout = () => {
   return (
     <div className="flex flex-col h-screen">
       <Navbar />
-      <Outlet />
+      <div className="flex-grow overflow-auto">
+        <Outlet />
+      </div>
     </div>
   );
 };
