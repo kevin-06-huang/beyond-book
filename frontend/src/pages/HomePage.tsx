@@ -25,7 +25,7 @@ const HomePage = () => {
 
   return (
     <>
-      <section className="bg-ct-blue-600 pt-20">
+      <section className="bg-ct-blue-600">
         <Carousel />
       </section>
     </>

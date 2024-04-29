@@ -5,7 +5,10 @@ const Layout = () => {
   return (
     <div className="flex flex-col h-screen">
       <Navbar />
-      <div className="flex-grow overflow-auto">
+      <div
+        className="flex-grow overflow-auto"
+        style={{ height: "calc(100vh - 3rem)" }}
+      >
         <Outlet />
       </div>
     </div>
