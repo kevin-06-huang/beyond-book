@@ -13,7 +13,12 @@ export const CarouselContainer = () => {
       </div>
       <div className="flex w-full justify-center items-end pt-1">
         {Object.entries(genres).map(([genre, src]) => (
-          <GenreButton key={genre} genre={genre} src={src} />
+          <GenreButton
+            key={genre}
+            genre={genre}
+            src={src}
+            setGenre={setGenre}
+          />
         ))}
       </div>
     </div>

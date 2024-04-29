@@ -1,6 +1,17 @@
-const GenreButton = ({ genre, src }: { genre: string; src: string }) => {
+const GenreButton = ({
+  genre,
+  src,
+  setGenre,
+}: {
+  genre: string;
+  src: string;
+  setGenre: (genre: string) => void;
+}) => {
   return (
-    <button className="relative group bg-blue-500 font-bold rounded inline-flex items-center justify-center m-1 transition ease-in-out duration-300">
+    <button
+      className="relative group bg-blue-500 font-bold rounded inline-flex items-center justify-center m-1 transition ease-in-out duration-300"
+      onClick={() => setGenre(genre)}
+    >
       <span className="absolute z-10 flex items-center justify-center text-opacity-30 group-hover:text-opacity-100 text-white font-bold">
         {genre}
       </span>
