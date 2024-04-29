@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/kevin-06-huang/react_app_template#readme",
   "devDependencies": {
+    "@material-tailwind/react": "^2.1.9",
     "@tailwindcss/forms": "^0.5.7",
     "@types/react": "^18.2.74",
     "@types/react-dom": "^18.2.25",

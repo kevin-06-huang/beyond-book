@@ -14,7 +14,7 @@ const Carousel = ({ genre }: { genre: string }) => {
 
   return (
     <div className="flex justify-center items-center">
-      <button onClick={prevSlide} className="absolute left-0 z-10">
+      <button onClick={prevSlide} className="absolute left-4 z-10">
         &#10094;
       </button>
       {genre}
@@ -28,7 +28,7 @@ const Carousel = ({ genre }: { genre: string }) => {
           )}
         </div>
       ))}
-      <button onClick={nextSlide} className="absolute right-0 z-10">
+      <button onClick={nextSlide} className="absolute right-4 z-10">
         &#10095;
       </button>
     </div>

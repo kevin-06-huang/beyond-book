@@ -1,4 +1,5 @@
 import { useState } from "react";
+// import { Carousel } from "@material-tailwind/react";
 import Carousel from "./Carousel";
 import GenreButton from "./GenreButton";
 import { genres } from "../../constants/genres";
