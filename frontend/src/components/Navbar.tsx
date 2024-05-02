@@ -4,8 +4,8 @@ import { useAuth } from "../contexts/AuthContext";
 
 const getNavLinkClass = ({ isActive }: { isActive: boolean }) => {
   return isActive
-    ? "bg-gray-900 hover:bg-gray-700 px-3 rounded-md text-white"
-    : "hover:bg-gray-700 px-3 rounded-md text-white";
+    ? "bg-gray-900 hover:bg-gray-700 hover:text-black px-3 rounded-md text-white"
+    : "hover:bg-gray-700 px-3 rounded-md text-black hover:text-white";
 };
 
 const NavBar = () => {
@@ -35,13 +35,11 @@ const NavBar = () => {
   };
 
   return (
-    <div className="flex relative justify-between items-center bg-blue-800 h-12">
-      <div className="size-16 mt-4">
-        <Logo
-          className={"relative z-10 border-8 border-blue-800 rounded-full"}
-        />
+    <div className="flex relative justify-between items-center bg-biege h-12">
+      <div className="size-16 mt-2">
+        <Logo className={"relative z-10 border-biege"} />
       </div>
-      <nav className="relative bg-blue-800 flex justify-between items-start mr-2">
+      <nav className="relative bg-biege flex justify-between items-start mr-2">
         <div className="flex space-x-4">
           <NavLink to="/" className={getNavLinkClass}>
             Home
