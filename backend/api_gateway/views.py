@@ -7,30 +7,47 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.middleware.csrf import get_token
 from django.conf import settings
+from .middleware import process_generative_text
+
 import google.generativeai as genai
 import json, os
 
 genai.configure(api_key=os.environ["GEMINI_API_KEY"])
 model = genai.GenerativeModel('gemini-pro')
 
-def message_view(request):
-    data = {
-        "message": "Welcome to the API Gateway!",
-        "status": "success"
-    }
-    return JsonResponse(data)
+def generate_view(request):
+    try:
+        response = model.generate_content(
+            '''
+                Please generate a children's story, with an appropriate title.
+                Please separate the story into pages,
+                and put dividers between the pages like this: "-----".
+                Please avoid anything else.
+                Do not put in page numbers.
+            ''')
+        
+        [title, pages] = process_generative_text(response.text)
+        data = {
+            "title": title,
+            "pages": pages,
+            "status": "success"
+        }
 
-def test_view(request):
-    response = model.generate_content("Write a story about a magic backpack.")
-    data = {
-        "message": response.text,
-        "status": "success"
-    }
-    return JsonResponse(data)
+        return JsonResponse(data)
+    
+    except ValueError as e:
+        error_data = {
+            "error": str(e),
+            "status": "error"
+        }
+        return JsonResponse(error_data, status=400)
 
 def ensure_csrf_cookie_view(request):
-    get_token(request)
-    return JsonResponse({'detail': 'CSRF cookie set'})
+    try:
+        get_token(request)
+        return JsonResponse({'detail': 'CSRF cookie set'})
+    except ValueError as e:
+        return JsonResponse({'error': e}, status=401)
 
 @csrf_protect
 @require_http_methods(["POST"])
@@ -76,8 +93,11 @@ def login_view(request):
         return JsonResponse({'error': str(e)}, status=500)
     
 def logout_view(request):
-    logout(request)
-    return JsonResponse({'message': 'Logged out'}, status=200)
+    try:
+        logout(request)
+        return JsonResponse({'message': 'Logged out'}, status=200)
+    except ValueError as e:
+        return JsonResponse({'error': e}, status=401)
 
 @login_required
 def check_session_view(request):
