@@ -28,8 +28,7 @@ def generate_view(request):
         
         [title, pages] = process_generative_text(response.text)
         data = {
-            "title": title,
-            "pages": pages,
+            "book": {"title": title, "pages": pages},
             "status": "success"
         }
 

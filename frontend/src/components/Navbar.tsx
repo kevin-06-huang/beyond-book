@@ -35,11 +35,11 @@ const NavBar = () => {
   };
 
   return (
-    <div className="flex relative justify-between items-center bg-biege h-12">
+    <div className="flex relative justify-between items-center bg-light_green h-12">
       <div className="size-16 mt-2">
-        <Logo className={"relative z-10 border-biege"} />
+        <Logo className={"relative z-10 border-light_green"} />
       </div>
-      <nav className="relative bg-biege flex justify-between items-start mr-2">
+      <nav className="relative bg-light_green flex justify-between items-start mr-2">
         <div className="flex space-x-4">
           <NavLink to="/" className={getNavLinkClass}>
             Home

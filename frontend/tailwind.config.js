@@ -6,7 +6,8 @@ module.exports = withMT({
   theme: {
     extend: {
       colors: {
-        biege: "rgba(235,251,238,255)",
+        light_green: "rgba(235,251,238,255)",
+        biege: "rgba(254,249,219,255)",
       },
     },
   },

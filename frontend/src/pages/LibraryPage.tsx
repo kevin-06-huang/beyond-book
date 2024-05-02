@@ -5,7 +5,7 @@ const LibraryPage = () => {
   useDocumentTitle("Library");
   return (
     <>
-      <section className="bg-ct-blue-600">
+      <section>
         <Library />
       </section>
     </>

@@ -6,7 +6,7 @@ const Layout = () => {
     <div className="flex flex-col h-screen">
       <Navbar />
       <div
-        className="flex-grow overflow-auto"
+        className="flex-grow overflow-auto bg-biege"
         style={{ height: "calc(100vh - 3rem)" }}
       >
         <Outlet />

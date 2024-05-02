@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Carousel } from "./CustomCarousel";
 import GenreButton from "./GenreButton";
-import { genres } from "../../constants/genres";
+import { genres } from "../../constants/books";
 
 export const CarouselContainer = () => {
   const [genre, setGenre] = useState<string>("Science Fiction");

@@ -5,7 +5,7 @@ const NotFoundPage = () => {
 
   return (
     <>
-      <section className="bg-ct-blue-600">
+      <section>
         <div className="relative flex flex-col justify-center items-center px-16 pt-4">
           Page Not Found / Unauthorized
         </div>
