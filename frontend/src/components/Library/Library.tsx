@@ -22,7 +22,7 @@ export const Library = () => {
   return (
     <div className="relative flex flex-col justify-center items-center px-2 py-2">
       <div
-        className="relative flex flex-col justify-center items-center px-2 py-2 rounded"
+        className="relative flex flex-col justify-center items-center px-2 py-2 rounded-xl"
         style={{
           backgroundImage: `url(${desk})`,
           backgroundSize: "100% 100%",

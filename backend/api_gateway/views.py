@@ -19,11 +19,12 @@ def generate_view(request):
     try:
         response = model.generate_content(
             '''
-                Please generate a children's story, with an appropriate title.
-                Please separate the story into pages,
+                Please generate a children's story, around 1000 words,
+                with an appropriate title for the entire story.
+                Please separate the story into pages, with each page
+                roughly 75 - 100 words long,
                 and put dividers between the pages like this: "-----".
-                Please avoid anything else.
-                Do not put in page numbers.
+                Please don't put in page numbers.
             ''')
         
         [title, pages] = process_generative_text(response.text)

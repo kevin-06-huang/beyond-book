@@ -5,7 +5,7 @@ import Page from "./Page";
 
 function Book({ title, pages }: { title: string; pages: string[] }) {
   return (
-    <div>
+    <div className="flex flex-col h-screen pt-6">
       <HTMLFlipBook
         width={400}
         height={550}
@@ -18,7 +18,6 @@ function Book({ title, pages }: { title: string; pages: string[] }) {
             {page}
           </Page>
         ))}
-        <Page number="4">Page text</Page>
         <PageCover>Fin</PageCover>
       </HTMLFlipBook>
     </div>
