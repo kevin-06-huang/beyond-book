@@ -128,3 +128,16 @@ def save_book_view(request):
         return JsonResponse(
             {"status": "error", "message": "Missing title or pages"}, status=400
         )
+
+
+@require_http_methods(["GET"])
+def get_all_books_view(request):
+    try:
+        books = Book.objects.all()
+        books_data = [
+            {"id": book.id, "title": book.title, "pages": book.pages} for book in books
+        ]
+
+        return JsonResponse({"books": books_data, "status": "success"}, status=201)
+    except ValueError as e:
+        return JsonResponse({"error": e}, status=400)

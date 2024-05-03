@@ -7,6 +7,7 @@ from .views import (
     logout_view,
     register_view,
     save_book_view,
+    get_all_books_view,
 )
 
 urlpatterns = [
@@ -17,4 +18,5 @@ urlpatterns = [
     path("logout", logout_view, name="logout"),
     path("check-session", check_session_view, name="check-session"),
     path("save-book", save_book_view, name="save-book"),
+    path("get-all-books", get_all_books_view, name="get-all-books"),
 ]
