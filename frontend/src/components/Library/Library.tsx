@@ -76,6 +76,7 @@ export const Library = () => {
       const response = await fetch("/api/save-book", requestOptions);
       if (response.ok) {
         setIsSaveable(false);
+        getBooks();
       } else {
         throw new Error(response.statusText);
       }
@@ -104,7 +105,7 @@ export const Library = () => {
       </div>
       <div className="flex justify-center items-center">
         <div className="flex-1">
-          <BookList books={books} />
+          <BookList books={books} setCurrentBook={setCurrentBook} />
         </div>
         <div className="ml-4">
           {isLoading ? (
