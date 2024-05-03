@@ -18,6 +18,9 @@ function Book({ title, pages }: { title: string; pages: string[] }) {
             {page}
           </Page>
         ))}
+        {pages.length % 2 === 1 && (
+          <Page key={pages.length} number={pages.length + 1}></Page>
+        )}
         <PageCover>Fin</PageCover>
       </HTMLFlipBook>
     </div>

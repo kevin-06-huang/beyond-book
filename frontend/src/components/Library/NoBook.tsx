@@ -10,4 +10,4 @@ const NoBook = () => {
   );
 };
 
-export default NoBook;
+export { NoBook };

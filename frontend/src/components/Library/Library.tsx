@@ -1,13 +1,16 @@
 import { useState } from "react";
 import { desk } from "../../constants/books";
-import NoBook from "./NoBook";
 import { Book } from "./Book";
+import { NoBook } from "./NoBook";
+import { Spinner } from "../shared/Spinner";
 import generate from "../../assets/generate.png";
 
 export const Library = () => {
   const [currentBook, setCurrentBook] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleClick = async () => {
+    setIsLoading(true);
     try {
       const response = await fetch("/api/generate");
       if (response.ok) {
@@ -16,7 +19,11 @@ export const Library = () => {
       } else {
         throw new Error(response.statusText);
       }
-    } catch (err) {}
+    } catch (err) {
+      console.error("Failed to generate: ", err);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -37,12 +44,16 @@ export const Library = () => {
           <NoBook />
         )}
       </div>
-      <button
-        onClick={handleClick}
-        className="w-10 h-10 mt-4 hover:brightness-50"
-      >
-        <img src={generate} alt={"generate"} />
-      </button>
+      {isLoading ? (
+        <Spinner className="mt-4" size={10} />
+      ) : (
+        <button
+          onClick={handleClick}
+          className="w-10 h-10 mt-4 hover:brightness-50"
+        >
+          <img src={generate} alt={"generate"} />
+        </button>
+      )}
     </div>
   );
 };
