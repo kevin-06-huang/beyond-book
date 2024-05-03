@@ -2,8 +2,9 @@ import { forwardRef } from "react";
 import HTMLFlipBook from "react-pageflip";
 import PageCover from "./PageCover";
 import Page from "./Page";
+import { BookType } from "../../types/BookType";
 
-function Book({ title, pages }: { title: string; pages: string[] }) {
+function Book({ title, pages }: BookType) {
   return (
     <div className="flex flex-col h-screen pt-6">
       <HTMLFlipBook
