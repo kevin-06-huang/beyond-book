@@ -1,12 +1,13 @@
 import re
 
+
 def process_generative_text(text):
     match = re.search(r"\*\*(.*?)\*\*", text)
     if match:
         title = match.group(1)
     else:
         raise ValueError("No title found in the text")
-    
+
     content = re.sub(r"\*\*.*?\*\*\n\n", "", text, 1)
     content = re.sub(r"\*\*(.*?)\*\*", "", content)
 
